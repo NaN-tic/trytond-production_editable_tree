@@ -1,0 +1,25 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "model:ir.action,name:act_production_editable_tree"
+msgid "Production Planning"
+msgstr "Planificació de la producció"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_production_editable_tree_domain_pending"
+msgid "Pending"
+msgstr "Pendent"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_production_editable_tree_domain_today"
+msgid "Today"
+msgstr "Avuí"
+
+msgctxt "model:ir.ui.menu,name:menu_production_editable_tree"
+msgid "Production Planning"
+msgstr "Planificació de la producció"
+
+msgctxt "view:production:"
+msgid "Production Planning"
+msgstr "Planificació de la producció"

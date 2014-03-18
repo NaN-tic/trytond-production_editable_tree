@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="production_editable_view_list">
+            <field name="model">production</field>
+            <field name="type">tree</field>
+            <field name="name">production_editable_list</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="act_production_editable_list_view1">
+            <field name="sequence" eval="15"/>
+            <field name="view" ref="production_editable_view_list"/>
+            <field name="act_window" ref="production.act_production_calendar"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_production_editable_tree">
+            <field name="name">Production Planning</field>
+            <field name="res_model">production</field>
+        </record>
+        <record model="ir.action.act_window.view"
+                id="act_production_editable_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="production_editable_view_list"/>
+            <field name="act_window" ref="act_production_editable_tree"/>
+        </record>
+        <record model="ir.action.act_window.view"
+                id="act_production_editable_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="production.production_view_form"/>
+            <field name="act_window" ref="act_production_editable_tree"/>
+        </record>
+
+        <record model="ir.action.act_window.domain"
+            id="act_production_editable_tree_domain_today">
+            <field name="name">Today</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('planned_date', '=', Date()), ('state', 'not in', ['cancel', 'done'])]</field>
+            <field name="act_window" ref="act_production_editable_tree"/>
+        </record>
+        <record model="ir.action.act_window.domain"
+            id="act_production_editable_tree_domain_pending">
+            <field name="name">Pending</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('state', 'in', ['request', 'draft', 'waiting', 'assigned'])]</field>
+            <field name="act_window" ref="act_production_editable_tree"/>
+        </record>
+
+        <!-- Menus -->
+        <menuitem action="act_production_editable_tree"
+            id="menu_production_editable_tree"
+            parent="production.menu_production" sequence="20"/>
+    </data>
+</tryton>
