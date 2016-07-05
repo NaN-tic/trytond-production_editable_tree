@@ -35,14 +35,18 @@
             id="act_production_editable_tree_domain_today">
             <field name="name">Today</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('planned_date', '=', Date()), ('state', 'not in', ['cancel', 'done'])]</field>
+            <field name="domain"
+                eval="[('planned_date', '=', Date()), ('state', 'not in', ['cancel', 'done'])]"
+                pyson="1"/>
             <field name="act_window" ref="act_production_editable_tree"/>
         </record>
         <record model="ir.action.act_window.domain"
             id="act_production_editable_tree_domain_pending">
             <field name="name">Pending</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('state', 'in', ['request', 'draft', 'waiting', 'assigned'])]</field>
+            <field name="domain"
+                eval="[('state', 'in', ['request', 'draft', 'waiting', 'assigned'])]"
+                pyson="1"/>
             <field name="act_window" ref="act_production_editable_tree"/>
         </record>
 
