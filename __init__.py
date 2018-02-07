@@ -2,10 +2,10 @@
 # copyright notices and license terms.
 
 from trytond.pool import Pool
-from production import *
+from . import production
 
 
 def register():
     Pool.register(
-        Production,
+        production.Production,
         module='production_editable_tree', type_='model')
