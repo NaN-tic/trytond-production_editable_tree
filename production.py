@@ -19,4 +19,4 @@ class Production(metaclass=PoolMeta):
                 continue
             for onchange_fname in field.on_change:
                 if onchange_fname not in field.depends:
-                    field.depends.append(onchange_fname)
+                    field.depends.add(onchange_fname)
