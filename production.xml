@@ -36,7 +36,7 @@
             <field name="name">Today</field>
             <field name="sequence" eval="10"/>
             <field name="domain"
-                eval="[('planned_date', '=', Date()), ('state', 'not in', ['cancelled', 'done'])]"
+                eval="[('planned_date', '<=', Date()), ('state', 'not in', ['cancelled', 'done'])]"
                 pyson="1"/>
             <field name="act_window" ref="act_production_editable_tree"/>
         </record>
